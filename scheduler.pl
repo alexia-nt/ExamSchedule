@@ -86,42 +86,11 @@ error_calculator([A,B,C],Aem,Errors):-
        attends(Aem,A),
        attends(Aem,B),
        attends(Aem,C),
-       Errors is 1.
-error_calculator([A,B,C],Aem,Errors):-
-       not(attends(Aem,A)),
-       not(attends(Aem,B)),
-       not(attends(Aem,C)),
-       Errors is 0.
-error_calculator([A,B,C],Aem,Errors):-
-       attends(Aem,A),
-       not(attends(Aem,B)),
-       not(attends(Aem,C)),
-       Errors is 0.
-error_calculator([A,B,C],Aem,Errors):-
-       not(attends(Aem,A)),
-       attends(Aem,B),
-       not(attends(Aem,C)),
-       Errors is 0.
-error_calculator([A,B,C],Aem,Errors):-
-       not(attends(Aem,A)),
-       not(attends(Aem,B)),
-       attends(Aem,C),
-       Errors is 0.
-error_calculator([A,B,C],Aem,Errors):-
-       not(attends(Aem,A)),
-       attends(Aem,B),
-       attends(Aem,C),
-       Errors is 0.
-error_calculator([A,B,C],Aem,Errors):-
-       attends(Aem,A),
-       not(attends(Aem,B)),
-       attends(Aem,C),
-       Errors is 0.
-error_calculator([A,B,C],Aem,Errors):-
-       attends(Aem,A),
-       attends(Aem,B),
-       not(attends(Aem,C)),
-       Errors is 0.
+       Errors is 1,
+       !.
+% Για όλες τις άλλες περιπτώσεις το error είναι 0.
+error_calculator([_,_,_],_,Errors):-
+         Errors is 0.
 
 % Επιστρέφει στις μεταβλητές A, B, C ένα πρόγραμμα εξετάσεων για τις
 % τρεις εβδομάδες, στο οποίο ο αριθμός «δυσαρεστημένων» φοιτητών να
